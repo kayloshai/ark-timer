@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+      - drag-and-drop
 
 jobs:
   build-and-deploy:
