@@ -1,4 +1,4 @@
-name: Build and deploy storybook
+name: Build and deploy site
 
 on:
   workflow_dispatch:
