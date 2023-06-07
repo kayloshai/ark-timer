@@ -5,7 +5,7 @@ on:
   push:
     branches:
       - main
-      - import-components
+      - update-ui
 
 jobs:
   build-and-deploy:
@@ -35,5 +35,10 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
+<<<<<<< HEAD
           FOLDER: build
           CLEAN: true
+=======
+          FOLDER: ./build
+          CLEAN: true
+>>>>>>> 712b6c1f059c6576660b9a78a5d9af0f03a4f6f9
