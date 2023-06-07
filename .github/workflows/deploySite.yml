@@ -1,4 +1,4 @@
-name: Build and deploy Ark Timer
+name: Build and deploy Ark Timer.
 
 on:
   workflow_dispatch:
