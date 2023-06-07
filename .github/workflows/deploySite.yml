@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: yarn
 
-      - name: Build ark timer
+      - name: Build Ark Timer
         run: yarn build
 
       - name: Deploy ark timer
