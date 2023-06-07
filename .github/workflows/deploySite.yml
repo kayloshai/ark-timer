@@ -28,7 +28,7 @@ jobs:
         run: yarn
 
       - name: Build Ark Timer
-        run: yarn build
+        run: yarn deploy
 
       - name: Deploy Ark Timer
         uses: JamesIves/github-pages-deploy-action@3.7.1
