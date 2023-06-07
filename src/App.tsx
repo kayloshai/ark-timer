@@ -1,6 +1,7 @@
 import React from 'react';
 import CustomLabelInput from './CustomLabelInput';
-import "./App.css";
+import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautiful-dnd';
+import './App.css';
 
 interface Timer {
   id: number;
@@ -114,21 +115,61 @@ const CountdownTimer: React.FC = () => {
     return `${hours} hrs : ${minutes.toString().padStart(2, '0')} mins : ${seconds.toString().padStart(2, '0')} secs`;
   };
 
+  const handleDragEnd = (result: DropResult) => {
+    if (!result.destination) return;
+
+    const updatedTimers = Array.from(timers);
+    const [reorderedTimer] = updatedTimers.splice(result.source.index, 1);
+    updatedTimers.splice(result.destination.index, 0, reorderedTimer);
+
+    setTimers(updatedTimers);
+  };
+
   return (
     <div>
-      <button onClick={() => handleAddTimer(0.166667, '10 seconds')}>Start 10 seconds</button>
-      <button onClick={() => handleAddTimer(5, '5 min')}>Start 5 min</button>
-      <button onClick={() => handleAddTimer(10, '10 min')}>Start 10 min</button>
-      <button onClick={handleShowCustomTimer}>{showCustomTimer ? 'Hide Custom' : 'Custom'}</button>
+      <button onClick={() => handleAddTimer(0.166667, '10 seconds')}>
+        Start 10 seconds
+      </button>
+      <button onClick={() => handleAddTimer(5, '5 min')}>
+        Start 5 min
+      </button>
+      <button onClick={() => handleAddTimer(10, '10 min')}>
+        Start 10 min
+      </button>
+      <button onClick={handleShowCustomTimer}>
+        {showCustomTimer ? 'Hide Custom' : 'Custom'}
+      </button>
       {showCustomTimer && <CustomTimer onTimerStart={handleAddTimer} />}
-      <button onClick={handleResetTimers}>Reset Timers</button>
-      {timers.map((timer) => (
-        <div key={timer.id} className='App-header'>
-          {timer.label && <span>{timer.label}: </span>}
-          <span>{formatTime(timer.time)}</span>
-          <button onClick={() => handleRemoveTimer(timer.id)}>X</button>
-        </div>
-      ))}
+      <button onClick={handleResetTimers}>
+        Reset Timers
+      </button>
+      <DragDropContext onDragEnd={handleDragEnd}>
+        <Droppable droppableId="timers">
+          {(provided) => (
+            <div ref={provided.innerRef} {...provided.droppableProps}>
+              {timers.map((timer, index) => (
+                <Draggable key={timer.id} draggableId={timer.id.toString()} index={index}>
+                  {(provided) => (
+                    <div
+                      ref={provided.innerRef}
+                      {...provided.draggableProps}
+                      {...provided.dragHandleProps}
+                      className="App-header"
+                    >
+                      {timer.label && <span>{timer.label}: </span>}
+                      <span>{formatTime(timer.time)}</span>
+                      <button onClick={() => handleRemoveTimer(timer.id)}>
+                        X
+                      </button>
+                    </div>
+                  )}
+                </Draggable>
+              ))}
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
+      </DragDropContext>
     </div>
   );
 };
