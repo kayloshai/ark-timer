@@ -99,19 +99,6 @@ const CountdownTimer: React.FC = () => {
     setTimers([]);
   };
 
-  const handleDragEnd = (result: DropResult) => {
-    if (!result.destination) {
-      return;
-    }
-
-    const { source, destination } = result;
-    const newTimers = [...timers];
-    const [removedTimer] = newTimers.splice(source.index, 1);
-    newTimers.splice(destination.index, 0, removedTimer);
-
-    setTimers(newTimers);
-  };
-
   React.useEffect(() => {
     timers.forEach((timer) => {
       if (timer.time === 0 && timer.intervalId) {
@@ -126,6 +113,16 @@ const CountdownTimer: React.FC = () => {
     const seconds = time % 60;
 
     return `${hours} hrs : ${minutes.toString().padStart(2, '0')} mins : ${seconds.toString().padStart(2, '0')} secs`;
+  };
+
+  const handleDragEnd = (result: DropResult) => {
+    if (!result.destination) return;
+
+    const updatedTimers = Array.from(timers);
+    const [reorderedTimer] = updatedTimers.splice(result.source.index, 1);
+    updatedTimers.splice(result.destination.index, 0, reorderedTimer);
+
+    setTimers(updatedTimers);
   };
 
   return (
@@ -151,7 +148,7 @@ const CountdownTimer: React.FC = () => {
           {(provided) => (
             <div ref={provided.innerRef} {...provided.droppableProps}>
               {timers.map((timer, index) => (
-                <Draggable key={timer.id.toString()} draggableId={timer.id.toString()} index={index}>yarn
+                <Draggable key={timer.id} draggableId={timer.id.toString()} index={index}>
                   {(provided) => (
                     <div
                       ref={provided.innerRef}
