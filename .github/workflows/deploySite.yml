@@ -1,10 +1,11 @@
-name: Build and deploy Ark Timer
+name: Build and deploy storybook
 
 on:
   workflow_dispatch:
   push:
     branches:
       - main
+      - update-ui
 
 jobs:
   build-and-deploy:
@@ -29,10 +30,11 @@ jobs:
       - name: Build Ark Timer
         run: yarn build
 
-      - name: Deploy Ark Timer
+      - name: Deploy ark timer
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
           FOLDER: build
           CLEAN: true
+
