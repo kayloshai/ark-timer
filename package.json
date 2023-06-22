@@ -1,8 +1,12 @@
 {
-  "name": "ark-timer",
+  "name": "@kayloshai/ark-timer",
   "homepage": "https://kayloshai.github.io/ark-timer/",
   "version": "0.1.0",
   "private": true,
+  "repository": {"type" : "git", "url": "git+https://github.com/kayloshai/ark-timer.git"},
+  "keywords": [],
+  "author": "Jason Lavarinhas",
+  "engines": {"node" : ">=18.0.0"},
   "dependencies": {
     "@babel/core": "^7.22.1",
     "@emotion/react": "^11.11.1",
