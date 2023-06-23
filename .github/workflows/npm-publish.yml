@@ -12,9 +12,6 @@ jobs:
         with:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
-          # Defaults to the user or organization that owns the workflow file
-          scope: '@kayloshai/ark-timer'
-      - run: yarn
       - run: yarn publish 
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
