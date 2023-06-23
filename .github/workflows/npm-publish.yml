@@ -1,26 +1,23 @@
-name: Publish Package to npmjs
+name: Publish package to GitHub Packages
 on:
   release:
     types: [published]
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: read
+      packages: write
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v3
+      # Setup .npmrc file to publish to GitHub Packages
+      - uses: actions/setup-node@v3
         with:
-          node-version: '18' # Update to your desired Node.js version
-          registry-url: 'https://registry.npmjs.org'
-      
-      - name: Install Dependencies
-        run: yarn
-
-      - name: Publish to npm
-        run: yarn publish
+          node-version: '18.x'
+          registry-url: 'https://npm.pkg.github.com'
+          # Defaults to the user or organization that owns the workflow file
+          scope: '@ark-timer'
+      - run: yarn install --frozen-lockfile
+      - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
