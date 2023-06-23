@@ -1,9 +1,9 @@
 {
-  "name": "@kayloshai/ark-timer",
+  "name": "ark-timer",
   "homepage": "https://kayloshai.github.io/ark-timer/",
   "version": "1.0.0",
   "private": false,
-  "repository": {"type" : "git", "url": "git+https://github.com/kayloshai/ark-timer.git"},
+  "repository": {"type" : "git", "url": "https://github.com/kayloshai/ark-timer.git"},
   "keywords": [],
   "author": "Jason Lavarinhas",
   "engines": {"node" : ">=18.0.0"},
