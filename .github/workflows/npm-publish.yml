@@ -18,9 +18,9 @@ jobs:
           # Defaults to the user or organization that owns the workflow file
           scope: '@ark-timer'
       - run: yarn install --frozen-lockfile
-      
+
       - name: Authenticate with npm
-        run: npm login
+        run: yarn login
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: npm publish
+      - run: yarn publish
