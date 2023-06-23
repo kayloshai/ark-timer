@@ -2,16 +2,25 @@ name: Publish Package to npmjs
 on:
   release:
     types: [published]
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-      # Setup .npmrc file to publish to npm
-      - uses: actions/setup-node@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: '18.x'
+          node-version: '18' # Update to your desired Node.js version
           registry-url: 'https://registry.npmjs.org'
-      - run: yarn publish 
+      
+      - name: Install Dependencies
+        run: yarn
+
+      - name: Publish to npm
+        run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
