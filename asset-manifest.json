@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/ark-timer/static/css/main.91af646c.css",
-    "main.js": "/ark-timer/static/js/main.1bb4a51b.js",
-    "static/js/787.f9c6eb42.chunk.js": "/ark-timer/static/js/787.f9c6eb42.chunk.js",
+    "main.js": "/ark-timer/static/js/main.daa99672.js",
+    "static/js/651.b04edc08.chunk.js": "/ark-timer/static/js/651.b04edc08.chunk.js",
     "index.html": "/ark-timer/index.html",
     "main.91af646c.css.map": "/ark-timer/static/css/main.91af646c.css.map",
-    "main.1bb4a51b.js.map": "/ark-timer/static/js/main.1bb4a51b.js.map",
-    "787.f9c6eb42.chunk.js.map": "/ark-timer/static/js/787.f9c6eb42.chunk.js.map"
+    "main.daa99672.js.map": "/ark-timer/static/js/main.daa99672.js.map",
+    "651.b04edc08.chunk.js.map": "/ark-timer/static/js/651.b04edc08.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.91af646c.css",
-    "static/js/main.1bb4a51b.js"
+    "static/js/main.daa99672.js"
   ]
 }
