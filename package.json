@@ -3,31 +3,37 @@
   "homepage": "https://kayloshai.github.io/ark-timer/",
   "version": "1.0.0",
   "private": false,
-  "repository": {"type" : "git", "url": "https://github.com/kayloshai/ark-timer.git"},
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kayloshai/ark-timer.git"
+  },
   "author": "Jason Lavarinhas",
-  "engines": {"node" : ">=18.0.0"},
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
-    "@babel/core": "^7.22.1",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@material-ui/icons": "^4.11.3",
-    "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.13.4",
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^13.0.0",
-    "@testing-library/user-event": "^13.2.1",
-    "@types/jest": "^27.0.1",
-    "@types/node": "^16.7.13",
-    "@types/react": "^18.0.0",
-    "@types/react-beautiful-dnd": "^13.1.4",
-    "@types/react-dom": "^18.0.0",
     "react": "^18.2.0",
-    "react-beautiful-dnd": "^13.1.1",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.5",
+    "@material-ui/icons": "^4.11.3",
+    "@mui/icons-material": "^5.11.16",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/jest": "^29.5.2",
+    "@types/node": "^20.3.1",
+    "@types/react": "^18.2.13",
+    "@types/react-beautiful-dnd": "^13.1.4",
+    "@types/react-dom": "^18.2.6",
+    "react-beautiful-dnd": "^13.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -53,4 +59,5 @@
       "last 1 safari version"
     ]
   }
+  
 }
